@@ -1,0 +1,41 @@
+<div>
+<table  class="datatable" height="100%">
+<tr>
+<td>
+<h2>Listing newsarticles</h2>
+</td>
+<td align="right">
+<div><%= link_to '+Create Newsarticle', new_newsarticle_path %></div>
+</td>
+</tr>
+</table>
+</div>
+
+
+
+<fieldset>
+<table cellpadding="5" cellspacing="0">
+<% @newsarticles.each do |newsarticle| %>
+<tr>
+<td>
+<div>
+<table  class="datatable">
+<tr><td width="80%"><h3><%= newsarticle.title %></h3></td>
+ <td><u><%= link_to 'Show', newsarticle %></u></td>
+ <td><u><%= link_to 'Edit', edit_newsarticle_path(newsarticle) %></u></td>
+ <td><u><%= link_to 'Destroy', newsarticle, method: :delete, data: { confirm: 'Are you sure?' } %></u></td>
+</tr>
+<tr><td colspan="4"><%= newsarticle.article %></td></tr>
+</table>
+</div>
+</td>
+</tr>
+<% end %>
+</table>
+
+</fieldset>
+
+
+
+<br />
+

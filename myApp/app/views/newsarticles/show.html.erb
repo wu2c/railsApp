@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<table class="datatable">
+<tr><td width="90%"><h2><%= @newsarticle.title %></h2></td>
+ <td><u><%= link_to 'Edit', edit_newsarticle_path(@newsarticle) %></u></td>
+ <td>|</td>
+ <td><u><%= link_to 'Back', newsarticles_path %></u></td>
+</tr>
+</table>
+
+<hr/>
+<p>
+  <%= @newsarticle.article %>
+</p>
+
+<br/>
+
+<%= form_for([@newsarticle,@newsarticle.comments.build]) do |f| %>
+	<div>
+		<%= f.text_area :content, :size=> "50x10", :value=>"Add Comment..." %>
+	</div>
+	<%= f.submit %>
+<% end %>
+
+<br />
+<h3>Comments</h3>
+<% @newsarticle.comments.each do |comment| %>
+	<% if (@newsarticle.comments.length > 0) %>
+	<p><%= comment.content %></p>
+	<hr />
+	<% end %>
+<% end %>
+<br />

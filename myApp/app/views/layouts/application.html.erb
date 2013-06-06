@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Newsarticles</title>
+  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="../javascripts/commonControl.js"></script>
+  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+</head>
+
+<body onLoad="showDay();startT();searchReset();">
+<center> 
+<div class="div1" id="div1">
+<table class="header" cellspacing="0" cellpadding="5">
+<tr><td colspan="3">&nbsp;</td></tr>
+<tr valign="top">
+    	<td align="center"><span class="title whiteText">Welcome</span></td>
+    	<td align="right"><span id="showtime" class="whiteText"></span><span id="showday" class="whiteText"></span> </td>
+	
+  </tr>
+
+</table>
+
+
+
+<div class="content_container" id="content">
+
+<div class="containerdiv">
+
+
+<%= yield %>
+
+</div>
+
+</div>
+
+
+
+<div>
+<table class="footer" cellspacing="0" cellpadding="10">
+<tr>
+<td colspan="1">
+<span class="page_ud whiteText">contact :</span>&nbsp;<a href="mailto:wuchaojane@163.com"><span class="whiteText">wuchaojane@163.com </span></a>
+</td>
+</tr>
+</table>
+
+</div>
+</center>
+</body>
+</html>
