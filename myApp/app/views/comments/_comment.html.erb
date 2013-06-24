@@ -1,0 +1,7 @@
+
+<% @newsarticle.comments.each do |comment| %>
+	<% if (@newsarticle.comments.length > 0 && comment.content != nil) %>
+	<p><%= comment.content %></p>
+	<hr />
+	<% end %>
+<% end %>

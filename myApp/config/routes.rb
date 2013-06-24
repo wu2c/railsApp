@@ -63,5 +63,14 @@ MyApp::Application.routes.draw do
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
   
+  
   get "newsarticles/new"
+  
+  resources :users
+  get "users/new"
+  
+  resources :sessions
+  get "sessions/new"
+  get "sessions/destroy"
+ 
 end

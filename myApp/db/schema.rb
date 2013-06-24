@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130603143410) do
+ActiveRecord::Schema.define(:version => 20130622083650) do
 
   create_table "comments", :force => true do |t|
     t.string   "commenter"
@@ -29,6 +29,22 @@ ActiveRecord::Schema.define(:version => 20130603143410) do
     t.text     "article"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+  end
+
+  create_table "tags", :force => true do |t|
+    t.string   "tagname"
+    t.integer  "newsarticle_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
+  end
+
+  add_index "tags", ["newsarticle_id"], :name => "index_tags_on_newsarticle_id"
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

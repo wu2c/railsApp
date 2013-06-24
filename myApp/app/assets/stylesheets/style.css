@@ -51,8 +51,31 @@ hr{ border-style:dotted; color:Silver; }
 
 span.page_ud{ font-size:12px;}
 
-.whiteText {
+.whiteText, .whiteText a{
 color:white;
 }
 
 h3 {margin-left:0px; margin-bottom:5px; margin-top:5px; margin-right:0px;}
+
+/* border */
+.containerborder {
+border:1px solid silver; 
+padding:5px;
+}
+
+.whitebg{
+background-color:white;
+}
+
+.notice{
+color:red;
+}
+
+.redbg{
+background-color:red;
+}
+
+.paddingCenterText{
+padding-left: 10px;
+padding-right: 10px;
+}

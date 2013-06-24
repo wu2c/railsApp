@@ -1,0 +1,6 @@
+<%= form_for([@newsarticle,@newsarticle.comments.build]) do |f| %>
+	<div>
+		<%= f.text_area :content, :size=> "55x8" %>
+	</div>
+	<%= f.submit %>
+<% end %>

@@ -1,0 +1,37 @@
+
+<h2>Log In</h2>
+
+<%= form_tag sessions_path do %>
+	<% if alert %>
+	<table class="redbg" cellspacing="1" cellpadding="0">
+		<tr><td>
+			<h3 class="whiteText paddingCenterText">Log in failed</h3>
+			<table class="whitebg" cellspacing="0" cellpadding="5">
+			<tr><td>
+			<ul>
+				<% flash.each do |key,value| %>
+				<li><%= value %></li>
+				<% end %>
+			</ul>
+			</td></tr>
+			</table>
+		</td></tr>
+	</table>
+	<% end %>
+
+<table>
+<tr><td colspan="2"><%= label_tag :email %></td></tr>
+<tr><td colspan="2"><%= text_field_tag :email, params[:email], value:params[:email], :onfocus => "if(value == 'Email'){value=''}" %></td></tr>
+
+<tr><td colspan="2"><%= label_tag :password %></td></tr>
+<tr><td colspan="2"><%= password_field_tag :password %></td></tr>
+
+<tr><td><%= submit_tag "Log In" %></td><td><u><%= link_to 'Cancel', root_path %></u></td></tr>
+</table>
+<% end %>
+
+<div><p><u><%= link_to 'Or register for an account', new_user_path %></u></p></div>
+
+<br />
+
+			

@@ -1,4 +1,16 @@
-<p id="notice"><%= notice %></p>
+<div>
+<table  class="datatable" height="100%">
+<tr>
+<td valign="middle" align="center">
+<div class="notice">
+	<% if flash[:notice] %>
+	<%= flash[:notice] %>
+	<% end %>
+</div>
+</td>
+</tr>
+</table>
+</div>
 
 <table class="datatable">
 <tr><td width="90%"><h2><%= @newsarticle.title %></h2></td>
@@ -14,20 +26,22 @@
 </p>
 
 <br/>
+<h3>Tags</h3>
+<div><%= join_tags(@newsarticle) %><div>
 
-<%= form_for([@newsarticle,@newsarticle.comments.build]) do |f| %>
-	<div>
-		<%= f.text_area :content, :size=> "50x10", :value=>"Add Comment..." %>
-	</div>
-	<%= f.submit %>
-<% end %>
+<br/>
+
+<h3>Add a comment</h3>
+<%= render "comments/form" %>
 
 <br />
+
 <h3>Comments</h3>
 <% @newsarticle.comments.each do |comment| %>
-	<% if (@newsarticle.comments.length > 0) %>
+	<% if (@newsarticle.comments.length > 0 && comment.content != nil) %>
 	<p><%= comment.content %></p>
 	<hr />
 	<% end %>
 <% end %>
+
 <br />

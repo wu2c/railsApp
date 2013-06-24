@@ -1,0 +1,37 @@
+
+<h2>New User Sign Up</h1>
+
+<%= form_for @user do |f| %>
+	<% if @user.errors.any? %>
+	<table class="redbg" cellspacing="1" cellpadding="0">
+		<tr><td>
+			<h3 class="whiteText paddingCenterText">Form is invalid</h3>
+			<table class="whitebg" cellspacing="0" cellpadding="5">
+			<tr><td>
+			<ul>
+				<% for message in @user.errors.full_messages %>
+					<li><%= message %></li>
+				<% end %>
+			</ul>
+			</td></tr>
+			</table>
+		</td></tr>
+	</table>
+	<% end %>
+	
+	<table>
+		<tr><td colspan="2"><%= f.label :email %></td></tr>
+		<tr><td colspan="2"><%= f.text_field :email%></td></tr>
+		
+		<tr><td colspan="2"><%= f.label :password %></td></tr>
+		<tr><td colspan="2"><%= f.password_field :password %></td></tr>
+		
+		<tr><td colspan="2"><%= f.label :password_confirmation %></td></tr>
+		<tr><td colspan="2"><%= f.password_field :password_confirmation %></td></tr>
+		
+		<tr><td><%=  f.submit %></td><td><u><%= link_to 'Cancel', root_path %></u></td></tr>
+	</table>
+<% end %>
+
+<br />
+

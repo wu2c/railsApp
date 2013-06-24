@@ -1,29 +1,34 @@
+<% @newsarticle.tags.build %>
 <%= form_for(@newsarticle) do |f| %>
   <% if @newsarticle.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@newsarticle.errors.count, "error") %> prohibited this newsarticle from being saved:</h2>
-
-      <ul>
-      <% @newsarticle.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
+    <table class="redbg" cellspacing="1" cellpadding="0">
+		<tr><td id="error_explanation">
+			<h3 class="whiteText paddingCenterText"><%= pluralize(@newsarticle.errors.count, "error") %> prohibited this newsarticle from being saved</h3>
+			<table class="datatable whitebg" cellspacing="0" cellpadding="5">
+			<tr><td>
+			<ul>
+				<% @newsarticle.errors.full_messages.each do |msg| %>
+					<li><%= msg %></li>
+				<% end %>
+			</ul>
+			</td></tr>
+			</table>
+		</td></tr>
+	</table>
+	<br />
   <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :article %><br />
-    <%= f.text_area :article %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  
+  <table class="datatable">
+		<tr><td><span>User: </span><%= @newsarticle.name %></td></tr>
+		
+		<tr><td><%= f.label :title %></td></tr>
+		<tr><td><%= f.text_field :title %></td></tr>
+		
+		<tr><td><%= f.label :article %></td></tr>
+		<tr><td><%= f.text_area :article %></td></tr>
+		
+		<%= render :partial => 'tags/form', :locals => {:article_form => f} %>
+		
+		<tr><td><%=  f.submit %></td></td></tr>
+	</table>
 <% end %>

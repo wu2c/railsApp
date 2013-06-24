@@ -5,20 +5,46 @@
   <%= stylesheet_link_tag    "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  <script type="text/javascript" src="../javascripts/commonControl.js"></script>
+  
   <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+
 </head>
 
-<body onLoad="showDay();startT();searchReset();">
+<body>
 <center> 
 <div class="div1" id="div1">
 <table class="header" cellspacing="0" cellpadding="5">
 <tr><td colspan="3">&nbsp;</td></tr>
 <tr valign="top">
     	<td align="center"><span class="title whiteText">Welcome</span></td>
-    	<td align="right"><span id="showtime" class="whiteText"></span><span id="showday" class="whiteText"></span> </td>
+    	<td align="right">
+		<table>
+		<% if current_user %>
+		<tr>
+			<td><span class="whiteText">Hello,  <%= current_user[:email] %></span></td>
+			<td>&nbsp;&nbsp;<span class="whiteText"> <u> <%= link_to 'Log Out', {:controller => "sessions", :action => "destroy"}, :method => :delete %></span></u></td>
+			
+		</tr>
+		<% else %>		
+		<tr>
+		<%= form_tag sessions_path do %>
+		<td><%= text_field_tag :email, params[:email], value:"Email", :onfocus => "if(value == 'Email'){value=''}", :onblur => "if(value == ''){value='Email'}" %></td>
+		<td><%= password_field_tag :password, :value=>"pw" %>
+		<td><%= submit_tag "Log In" %></td>
+		<% end %>
+		</tr>
+		<tr><td colspan="3" align="right"><span class="whiteText"><%= link_to 'Or Register', new_user_path %></span></td></tr>
+		<% end %>
+		</table>
+		
+		
+		
+
+</td>
 	
   </tr>
+  
+  
 
 </table>
 
@@ -27,7 +53,6 @@
 <div class="content_container" id="content">
 
 <div class="containerdiv">
-
 
 <%= yield %>
 

@@ -11,13 +11,27 @@
 </table>
 </div>
 
+<div>
+<table  class="datatable" height="100%">
+<tr>
+<td valign="middle" align="center">
+<div class="notice">
+	<% if flash[:notice] %>
+	<%= flash[:notice] %>
+	<% end %>
+</div>
+</td>
+</tr>
+</table>
+</div>
+
 <fieldset>
-<table cellpadding="5" cellspacing="0">
+<table cellpadding="5" cellspacing="0" class="datatable">
 <% @newsarticles.each do |newsarticle| %>
 <tr>
 <td>
 <div>
-<table  class="datatable">
+<table class="datatable">
 <tr><td width="80%"><h3><%= newsarticle.title %></h3></td>
  <td><u><%= link_to 'Show', newsarticle %></u></td>
  <td><u><%= link_to 'Edit', edit_newsarticle_path(newsarticle) %></u></td>
@@ -32,6 +46,8 @@
 </table>
 
 </fieldset>
+
+
 
 <br />
 
