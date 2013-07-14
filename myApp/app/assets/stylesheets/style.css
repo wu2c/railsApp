@@ -79,3 +79,17 @@ background-color:red;
 padding-left: 10px;
 padding-right: 10px;
 }
+
+#tag_cloud a, .tag a{
+text-decoration:underline;
+color:#666666;
+}
+
+#tag_cloud{
+width: 400px;
+line-height: 1.6em;
+
+}
+.s{ font-size: 0.8em; }
+.m{ font-size: 1.2em; }
+.l{ font-size: 1.8em; }

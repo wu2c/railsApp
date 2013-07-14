@@ -2,11 +2,10 @@
 <html>
 <head>
   <title>Newsarticles</title>
-  <%= stylesheet_link_tag    "style", :media => "all" %>
+  <%= stylesheet_link_tag  "style", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-  
-  <link rel="stylesheet" type="text/css" href="../stylesheets/style.css"/>
+
 
 </head>
 
@@ -29,7 +28,7 @@
 		<tr>
 		<%= form_tag sessions_path do %>
 		<td><%= text_field_tag :email, params[:email], value:"Email", :onfocus => "if(value == 'Email'){value=''}", :onblur => "if(value == ''){value='Email'}" %></td>
-		<td><%= password_field_tag :password, :value=>"pw" %>
+		<td><%= password_field_tag :password, value:"pw"%>
 		<td><%= submit_tag "Log In" %></td>
 		<% end %>
 		</tr>

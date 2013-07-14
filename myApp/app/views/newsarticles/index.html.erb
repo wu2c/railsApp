@@ -1,3 +1,4 @@
+
 <div>
 <table  class="datatable" height="100%">
 <tr>
@@ -11,6 +12,13 @@
 </table>
 </div>
 
+<div id="tag_cloud">
+  <% tag_cloud Tag.tag_counts, %w{s m l} do |tag, css_class| %>
+    <%= link_to tag.tagname, {:controller=>:newsarticles, :action=>:index,:tag_path =>tag}, class: css_class %>
+  <% end %>
+</div>
+
+<br />
 <div>
 <table  class="datatable" height="100%">
 <tr>

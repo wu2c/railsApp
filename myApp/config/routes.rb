@@ -73,4 +73,7 @@ MyApp::Application.routes.draw do
   get "sessions/new"
   get "sessions/destroy"
  
+  match 'tags/:tag_path' => 'newsarticles#index'
+  match 'tags/' => 'newsarticles#index'
+
 end

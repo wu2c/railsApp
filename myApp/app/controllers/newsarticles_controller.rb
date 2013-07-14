@@ -6,17 +6,23 @@ class NewsarticlesController < ApplicationController
   # GET /newsarticles.json
   respond_to :html,:js,:xml
   def index
-    @newsarticles = Newsarticle.all
+		if(params[:tag_path])
+			@tag = Tag.find(params[:tag_path])
+			@tag_name = @tag.tagname 
+			@newsarticles = Tag.tagged_with(@tag_name)
+		else
+    		@newsarticles = Newsarticle.all
+		end
+    	respond_with @newsarticles
+	
 
-    respond_with @newsarticles
   end
 
   # GET /newsarticles/1
   # GET /newsarticles/1.json
   def show
-    @newsarticle = Newsarticle.find(params[:id])
-
-    respond_with @newsarticle
+	@newsarticle = Newsarticle.find(params[:id])
+	respond_with @newsarticle
   end
 
   # GET /newsarticles/new
